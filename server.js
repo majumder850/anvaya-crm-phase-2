@@ -7,7 +7,7 @@ const { initializeDatabase } = require("./db/db.connect.js");
 const app = express();
 app.use(express.json());
 
-// 1. Initialize Database
+// 1. Initialize Database connection
 initializeDatabase();
 
 const corsOptions = {
@@ -29,11 +29,6 @@ app.use("/api/report", reportRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to the Anvaya CRM API");
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
